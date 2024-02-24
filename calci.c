@@ -8,39 +8,38 @@ struct node
     struct node *next;
 };
 struct node *head;
-typedef struct node *NODE;
-NODE getnode()
-{
-    NODE x;
-    x=(NODE)malloc(sizeof(struct node));
-    return x;
-}
 
-void push()
+void gd()
 {
-    NODE temp;
+    struct node *temp,*ptr;
+    ptr=(struct node*)malloc(sizeof(struct node*));
     int credit;
     temp=getnode();
     printf("Enter the Subject name: ");
-    scanf("%s",temp->sub);
+    scanf("%s",ptr->sub);
     printf("Enter the marks scored: ");
-    scanf("%d",&temp->mark);
-    temp->off10=(temp->mark/3);
-    printf("Enter the credit of %s: ",temp->sub);
+    scanf("%d",&ptr->mark);
+    ptr->off10=(ptr->mark/3);
+    printf("Enter the credit of %s: ",ptr->sub);
     scanf("%d",&credit);
-    temp->grade=temp->off10*credit;
-    if(head==NULL)
+    ptr->grade=ptr->off10*credit;
+    if(head == NULL)
     {
-        temp->next=NULL;
-        head=temp;
+        ptr -> next = NULL;  
+        head = ptr;
     }
     else
     {
-        temp->next=head;
-        head=temp;
+        temp=head; 
+        while(temp->next!=NULL)
+        temp = temp -> next;
+        temp->next = ptr;
+        ptr->next = NULL;
     }
-
 }
+
+
+
 
 
 
