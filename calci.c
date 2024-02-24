@@ -3,7 +3,7 @@
 #include<iomanip>
 struct node
 {
-    int mark,grade,off10;
+    int mark,grade,off10,credit;
     char sub[30];
     struct node *next;
 };
@@ -21,8 +21,8 @@ void gd()
     scanf("%d",&ptr->mark);
     ptr->off10=(ptr->mark/3);
     printf("Enter the credit of %s: ",ptr->sub);
-    scanf("%d",&credit);
-    ptr->grade=ptr->off10*credit;
+    scanf("%d",&ptr->credit);
+    ptr->grade=ptr->off10*ptr->credit;
     if(head == NULL)
     {
         ptr -> next = NULL;  
@@ -38,12 +38,46 @@ void gd()
     }
 }
 
+float compute()
+{
+    struct node *ptr;
+    int s=0,t=0;
+    ptr=head;
+    if(ptr==NULL)
+    printf("No subs found");
+    else
+    {
+        while(ptr!=NULL)
+        {
+            s+=ptr->grade;
+            t+=ptr->credit;
+            ptr=ptr->next;
+        }
+        return (s/t);
+    }
+}
 
-
-
+void display()
+{
+    struct node *ptr;
+    int i;
+    while(ptr!=NULL)
+    {
+        printf("Subject %d\n",i);
+        printf("Subject name = %s\n",ptr->sub);
+        printf("Marks = %d\n",ptr->mark);
+        printf("Grade out of 10 = %d\n",ptr->off10);
+    }
+    printf("CGPA = %f",compute());
+}
 
 
 //main fun()
 void main(){
-     
+    int n;
+    printf("Enter the number of subs: ");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    gd();
+    display();
 }
