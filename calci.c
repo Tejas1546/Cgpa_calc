@@ -7,7 +7,7 @@ struct node
     char sub[30];
     struct node *next;
 };
-struct node *head;
+struct node *head=NULL;
 
 void gd()
 {
