@@ -13,7 +13,6 @@ void gd()
 {
     struct node *temp,*ptr;
     ptr=(struct node*)malloc(sizeof(struct node*));
-    int credit;
     printf("Enter the Subject name: ");
     scanf("%s",ptr->sub);
     printf("Enter the marks scored: ");
@@ -58,7 +57,7 @@ float compute()
 void display()
 {
     struct node *ptr=head;
-    int i;
+    int i=0;
     while(ptr!=NULL)
     {
         printf("Subject %d\n",i);
