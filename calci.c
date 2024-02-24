@@ -1,6 +1,6 @@
 #include<stdio.h>
-#include<cmath>
-#include<iomanip>
+#include<math.h>
+#include<stdlib.h>
 struct node
 {
     int mark,grade,off10,credit;
@@ -14,7 +14,6 @@ void gd()
     struct node *temp,*ptr;
     ptr=(struct node*)malloc(sizeof(struct node*));
     int credit;
-    temp=getnode();
     printf("Enter the Subject name: ");
     scanf("%s",ptr->sub);
     printf("Enter the marks scored: ");
