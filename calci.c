@@ -18,7 +18,7 @@ void gd()
     scanf("%s",ptr->sub);
     printf("Enter the marks scored: ");
     scanf("%d",&ptr->mark);
-    ptr->off10=(ptr->mark/3);
+    ptr->off10=((ptr->mark)/3);
     printf("Enter the credit of %s: ",ptr->sub);
     scanf("%d",&ptr->credit);
     ptr->grade=ptr->off10*ptr->credit;
@@ -39,9 +39,8 @@ void gd()
 
 float compute()
 {
-    struct node *ptr;
+    struct node *ptr=head;
     int s=0,t=0;
-    ptr=head;
     if(ptr==NULL)
     printf("No subs found");
     else
@@ -66,6 +65,8 @@ void display()
         printf("Subject name = %s\n",ptr->sub);
         printf("Marks = %d\n",ptr->mark);
         printf("Grade out of 10 = %d\n",ptr->off10);
+        ptr=ptr->next;
+        i++;
     }
     printf("CGPA = %f",compute());
 }
