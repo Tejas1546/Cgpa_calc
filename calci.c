@@ -70,13 +70,12 @@ float compute() {
 
 void display() {
     struct node *ptr = head;
-    int i = 0;
+    int i = 1;
     while (ptr != NULL) {
         printf("Subject %d\n", i);
         printf("Subject name = %s\n", ptr->sub);
         printf("Marks = %d\n", ptr->mark);
-        printf("Credit = %d\n", ptr->credit);
-        printf("Grade Points = %d\n", ptr->grade_points);
+        printf("Credit = %d\n\n", ptr->credit);
         ptr = ptr->next;
         i++;
     }
