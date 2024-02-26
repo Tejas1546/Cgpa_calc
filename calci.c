@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 
 struct node {
     int mark, grade_points, credit;
@@ -30,20 +31,6 @@ void gd() {
     }
 }
 
-int calculate_grade_points(int marks) {
-    if (marks >= 90)
-        return 10;
-    else if (marks >= 80)
-        return 9;
-    else if (marks >= 70)
-        return 8;
-    else if (marks >= 60)
-        return 7;
-    else if (marks >= 50)
-        return 6;
-    else
-        return 0; // failing grade
-}
 
 float compute() {
     struct node *ptr = head;
@@ -54,7 +41,7 @@ float compute() {
     else {
         while (ptr != NULL) {
             // Calculate Grade Points for each subject based on marks
-            ptr->grade_points = calculate_grade_points(ptr->mark) * ptr->credit;
+            ptr->grade_points = ceil((float)ptr->mark/10) * ptr->credit;
 
             // Update Total Grade Points and Total Credits
             total_grade_points += ptr->grade_points;
